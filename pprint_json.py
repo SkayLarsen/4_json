@@ -4,11 +4,10 @@ import sys
 
 
 def load_data(filepath):
-    if os.path.exists(filepath):
-        with open(filepath, 'r') as data_file:
-            return json.load(data_file)
-    else:
+    if not os.path.exists(filepath):
         return None
+    with open(filepath, 'r') as data_file:
+        return json.load(data_file)
 
 
 def pretty_print_json(data):
